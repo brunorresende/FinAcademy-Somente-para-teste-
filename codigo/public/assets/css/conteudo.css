@@ -1,0 +1,603 @@
+/* --- Variáveis de Cor (Tema Financeiro Verde) --- */
+:root {
+    --fin-dark-green: #2E7D32;   /* Verde Floresta (Títulos Fortes) */
+    --fin-accent-green: #4CAF50; /* Verde Esmeralda (Ações, Hover) */
+    --fin-light-green: #e8f5e9;  /* Verde Menta Bem Claro (Fundos) */
+    --fin-hover-bg: #c8e6c9;     /* Verde Claro para Hovers */
+    --fin-text-dark: #263238;    /* Cinza Escuro Esverdeado (Texto) */
+    --fin-text-light: #546e7a;   /* Cinza Médio (Subtextos) */
+    --fin-bg-main: #f8fbf9;      /* Off-white esverdeado */
+    --fin-border-color: #dceddf; /* Bordas sutis */
+    --shadow-subtle: 0 4px 6px rgba(46, 125, 50, 0.05);
+    --shadow-hover: 0 10px 20px rgba(76, 175, 80, 0.15), 0 6px 6px rgba(76, 175, 80, 0.1);
+}
+
+/* --- Estilos Globais e Estruturais --- */
+body { 
+    /* Usei Poppins como sugestão, se não carregar no HTML, volta para as padrões */
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+    background-color: var(--fin-bg-main); 
+    color: var(--fin-text-dark);
+}
+
+/* --- Animações Globais --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-30px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fade-in-up { animation: fadeInUp 0.8s ease-out both; }
+.fade-in-left { animation: fadeInLeft 0.8s ease-out both; animation-delay: 0.2s; }
+
+/* --- HEADER --- */
+.header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 30px; 
+    border-bottom: 2px solid var(--fin-border-color); 
+    background-color: #fff; 
+    height: 80px; 
+    box-shadow: var(--shadow-subtle);
+    box-sizing: border-box;
+    overflow: visible; 
+    position: relative;
+    z-index: 20;
+}
+
+/* --- Atualize estas classes no seu arquivo CSS --- */
+
+.logo-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    height: 100%;
+    max-height: 60px;
+    width: auto;
+    display: flex;
+    align-items: center;
+
+    /* REMOVA ou COMENTE a linha abaixo para tirar a sombra/contorno */
+    /* filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); */ 
+    
+    transition: transform 0.3s ease;
+}
+
+/* Se quiser remover também o efeito de zoom ao passar o mouse, remova isso: */
+.logo-container:hover {
+     transform: none; /* Antes era scale(1.02) */
+}
+
+.logo-container img {
+    height: 100%;        /* A imagem vai crescer até o limite de 60px definido acima */
+    width: 200px;         /* A largura se ajusta automaticamente para não distorcer */
+    object-fit: contain; /* Garante que a imagem inteira apareça sem cortes */
+}
+
+/* Ajuste importante para o título centralizar corretamente agora que a logo não é absolute */
+.titulo-curso { 
+    font-size: 28px;
+    font-weight: 800; 
+    text-align: center; 
+    color: var(--fin-dark-green);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    
+    /* REMOVIDO: padding-left: 200px; -> Não é mais necessário empurrar o texto */
+    padding-left: 0; 
+    
+    flex-grow: 1;
+    text-shadow: 1px 1px 2px rgba(46, 125, 50, 0.1);
+}
+
+.login { 
+    font-size: 1em;
+    padding: 10px 20px; 
+    border: 2px solid var(--fin-accent-green);
+    color: var(--fin-accent-green);
+    font-weight: 700; 
+    cursor: pointer;
+    background: #fff;
+    border-radius: 30px; /* Botão mais arredondado */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    white-space: nowrap;
+    margin-left: auto; 
+    position: relative;
+    z-index: 21;
+    box-shadow: 0 2px 5px rgba(76, 175, 80, 0.2);
+}
+.login:hover {
+    background-color: var(--fin-accent-green);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.main-container { 
+    display: flex; 
+    width: 100%; 
+    flex-grow: 1; 
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Sidebar Esquerda --- */
+.sidebar { 
+    width: 300px; 
+    min-width: 300px; 
+    padding: 30px; 
+    border-right: 1px solid var(--fin-border-color);
+    background-color: #fff; 
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+    position: relative;
+    z-index: 2; 
+    background-image: linear-gradient(to bottom, #ffffff, var(--fin-bg-main));
+}
+
+/* 1. TEMA ABORDADO */
+.tema-box-wrapper {
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--fin-light-green);
+    margin-top: 20px; 
+}
+
+.tema-label {
+    font-size: 1.1rem; 
+    font-weight: 600;
+    color: var(--fin-text-light); 
+    text-transform: uppercase;
+    margin: 0 0 5px 0;
+}
+
+/* --- No seu arquivo conteudo.css --- */
+
+/* Procure a parte do #tema-abordado e deixe assim: */
+#tema-abordado {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--fin-dark-green);
+    min-height: 1.5em;
+    
+    /* Configurações da Animação */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Nova classe para o efeito de troca */
+#tema-abordado.changing-theme {
+    opacity: 0;
+    /* O texto desce um pouco enquanto fica invisível */
+    transform: translateY(10px); 
+}
+
+/* 2. DESCRIÇÃO DINÂMICA (Com animação suave) */
+.description-box {
+    background-color: var(--fin-light-green);
+    border: 1px solid var(--fin-border-color);
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 140px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animação para o texto dentro da caixa */
+#conteudo-dinamico-sidebar {
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+.description-box.changing #conteudo-dinamico-sidebar {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+#descricao-header {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--fin-accent-green); /* Destaque em verde */
+    margin-bottom: 12px;
+    display: block;
+}
+
+#descricao-hover {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--fin-text-dark);
+    white-space: pre-line; 
+    margin: 0;
+}
+/* 4. LINKS LATERAIS (Mais bonitinhos) */
+.html-links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: auto; 
+}
+
+.quadrado-link {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid var(--fin-border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.quadrado-link:hover {
+    background-color: var(--fin-light-green);
+    border-color: var(--fin-accent-green);
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.15);
+}
+
+.quadrado-link a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinhado à esquerda */
+    padding: 15px 20px;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: var(--fin-text-dark);
+    font-weight: 600;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Adicionando um pequeno ícone de seta via CSS */
+.quadrado-link a::before {
+    content: '→';
+    margin-right: 10px;
+    color: var(--fin-accent-green);
+    font-weight: 800;
+    transition: transform 0.3s ease;
+}
+.quadrado-link:hover a::before {
+    transform: translateX(3px);
+}
+
+
+/* --- Área Principal de Conteúdo --- */
+.content-wrapper { 
+    flex-grow: 1; 
+    padding: 40px 50px; 
+    background-color: var(--fin-bg-main);
+    /* Padrão de fundo sutil (opcional) */
+    background-image: radial-gradient(var(--fin-border-color) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.content-heading {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--fin-dark-green);
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+/* Linha decorativa abaixo do título */
+.content-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--fin-accent-green);
+    border-radius: 2px;
+}
+
+
+/* Grid de Módulos (A grande estrela) */
+.modulos-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+    gap: 35px; 
+    padding-bottom: 40px;
+}
+
+.modulo-box { 
+    background-color: #fff; 
+    border: 2px solid var(--fin-border-color); /* Borda inicial sutil */
+    border-radius: 20px; /* Mais arredondado */
+    padding: 35px 25px;
+    text-align: center; 
+    cursor: pointer; 
+    min-height: 180px; /* Um pouco mais alto */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Transição elástica para o hover */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: var(--shadow-subtle);
+    
+    text-decoration: none;
+    color: var(--fin-text-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de brilho ao passar o mouse */
+.modulo-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(76, 175, 80, 0.1), transparent);
+    transition: all 0.6s;
+}
+.modulo-box:hover::before {
+    left: 100%;
+}
+
+
+.modulo-box strong {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--fin-dark-green);
+    transition: color 0.3s ease;
+}
+
+/* Ícone decorativo acima do título (opcional, adicione se quiser) */
+/* .modulo-box strong::before {
+    content: '🌱';
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 10px;
+} */
+
+.modulo-box span {
+    font-size: 0.9rem;
+    color: var(--fin-text-light);
+    font-weight: 500;
+}
+
+/* HOVER NO MÓDULO */
+.modulo-box:hover { 
+    transform: translateY(-8px) scale(1.03); 
+    box-shadow: var(--shadow-hover);
+    border-color: var(--fin-accent-green);
+    background-color: #fff; /* Garante fundo branco */
+}
+.modulo-box:hover strong {
+    color: var(--fin-accent-green);
+}
+
+/* Admin Button (Botão Criar Novo) */
+.admin-create-container {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out both; /* Animação de entrada também no botão */
+}
+
+.admin-create-btn {
+    display: inline-block;
+    background-color: var(--fin-accent-green);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: none;
+    cursor: pointer;
+}
+.admin-create-btn:hover {
+    background-color: var(--fin-dark-green);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Visualização Interna do Módulo */
+.modulo-view {
+    background: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--fin-border-color);
+    animation: fadeInUp 0.5s ease-out;
+}
+.modulo-view h3 {
+    color: var(--fin-dark-green);
+    font-size: 2rem;
+    border-bottom: 2px solid var(--fin-light-green);
+    padding-bottom: 15px;
+    margin-top: 0;
+}
+.btn-back {
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: transparent;
+    border: 2px solid var(--fin-accent-green);
+    color: var(--fin-accent-green);
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-back:hover {
+    background-color: var(--fin-accent-green);
+    color: white;
+}
+
+
+.hidden { display: none !important; }
+
+/* --- Modal e Admin --- */
+/* Botões de Ação nos Cards (Admin) */
+.card-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    opacity: 0.6; /* Levemente transparente até passar o mouse */
+    transition: opacity 0.3s ease;
+}
+.modulo-box:hover .card-actions { opacity: 1; }
+
+.btn-card-action {
+    padding: 6px 12px;
+    font-size: 0.85em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.btn-edit { background-color: #FFB300; color: #fff; } /* Amarelo ouro */
+.btn-delete { background-color: #e53935; color: white; } /* Vermelho */
+.btn-card-action:hover { transform: scale(1.1); box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+
+/* Estilos do Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(30, 86, 49, 0.5); /* Fundo verde escuro transparente */
+    backdrop-filter: blur(3px); /* Efeito de desfoque atrás */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0; visibility: hidden;
+    transition: all 0.3s ease;
+}
+/* Quando a classe hidden é removida via JS, precisamos mostrar o overlay */
+.modal-overlay:not(.hidden) {
+   opacity: 1; visibility: visible;
+}
+
+/* Animação de entrada do Modal (Bounce-in Drop) */
+@keyframes bounceInDown {
+    from, 60%, 75%, 90%, to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+    0% { opacity: 0; transform: translate3d(0, -3000px, 0); }
+    60% { opacity: 1; transform: translate3d(0, 25px, 0); }
+    75% { transform: translate3d(0, -10px, 0); }
+    90% { transform: translate3d(0, 5px, 0); }
+    to { transform: none; }
+}
+.modal-content.bounce-in {
+    animation: bounceInDown 0.8s;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 20px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: 3px solid var(--fin-accent-green);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--fin-light-green);
+    padding-bottom: 15px;
+}
+.modal-header h3 {
+    margin: 0;
+    color: var(--fin-dark-green);
+    font-size: 1.5rem;
+}
+
+.btn-close {
+    background: #f1f3f5;
+    border: none;
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+}
+.btn-close:hover { background-color: #e9ecef; color: #333; transform: rotate(90deg); }
+
+.form-group { margin-bottom: 20px; }
+.form-group label {
+    display: block; margin-bottom: 8px;
+    font-weight: 700; color: var(--fin-text-dark);
+    font-size: 0.95rem;
+}
+.form-group input, .form-group textarea {
+    width: 100%; padding: 12px 15px;
+    border: 2px solid var(--fin-border-color);
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-family: inherit; font-size: 1rem;
+    transition: border-color 0.3s;
+}
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--fin-accent-green);
+    background-color: var(--fin-light-green);
+}
+
+.modal-actions {
+    display: flex; justify-content: flex-end;
+    gap: 15px; margin-top: 30px;
+}
+.btn-save {
+    padding: 12px 25px;
+    background-color: var(--fin-accent-green);
+    color: white; border: none;
+    border-radius: 50px;
+    cursor: pointer; font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(76, 175, 80, 0.2);
+    transition: all 0.3s;
+}
+.btn-save:hover { background-color: var(--fin-dark-green); transform: translateY(-2px); box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3); }
+
+.btn-cancel {
+    padding: 12px 25px;
+    background-color: transparent;
+    color: var(--fin-text-light); border: 2px solid var(--fin-border-color);
+    border-radius: 50px;
+    cursor: pointer; font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+.btn-cancel:hover { background-color: #f1f3f5; border-color: #cfd8dc; color: var(--fin-text-dark); }

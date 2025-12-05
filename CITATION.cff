@@ -1,0 +1,44 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: FinAcademy
+authors: 
+  - family-names: de Sousa
+    given-names: Camargo
+  - family-names: Silva de Almeida
+    given-names: Felipe
+  - family-names: Souza Vieira
+    given-names: Ian Gabrie
+  - family-names: Guimarães Faria
+    given-names: Luís Fernando
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Guerra Pereira Cunha
+    given-names: Bernardo
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Vieira Carneiro
+    given-names: Rommel
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Ferreira de Carvalho
+    given-names: Walisson
+keywords:
+  - "Educação financeira"
+  - "Economia"
+  - "Administração"
+  - "Popança"
+  - "Investimento"
+  - "Juros"
+  - "Dívida"
+  - "Planejamento"
+  - "Letramento financeiro"
+  - "Cálculo"
+  - "Conhecimento"
+  - "Dinheiro"
+  - "Endividamento"
+  - "Aposentadoria"
+
+repository-code: https://github.com/ICEI-PUC-Minas-PPLCC-TI/ti1-g6-educacao-financeira.git
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2022-07-14

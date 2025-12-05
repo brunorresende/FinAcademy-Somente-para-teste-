@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil Econômico</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container perfilEco mt-5">
+    <h2 class="text-center mb-4">Vamos entender seu perfil financeiro:</h2>
+
+    <form id="perfilForm" class="border p-4 rounded bg-light">
+      <!-- Renda -->
+      <div class="mb-3">
+        <label class="form-label">Quanto você recebe por mês?</label>
+        <div class="input-group">
+          <input type="number" id="renda" class="form-control" placeholder="Ex: 2500">
+        </div>
+        <div class="mt-2">
+          <input type="radio" name="fonteRenda" value="salario"> Salário
+          <input type="radio" name="fonteRenda" value="autonomo"> Autônomo
+          <input type="radio" name="fonteRenda" value="aposentadoria"> Aposentadoria
+        </div>
+      </div>
+
+      <!-- Renda Extra -->
+      <div class="mb-3">
+        <label class="form-label">Você tem outras fontes de renda?</label>
+        <input type="radio" name="rendaExtra" value="sim"> Sim
+        <input type="radio" name="rendaExtra" value="nao"> Não
+        <input type="text" id="rendaExtraDesc" class="form-control mt-2" placeholder="Qual? (Se sim)">
+      </div>
+
+      <!-- Custos Fixos -->
+      <div class="mb-3">
+        <label class="form-label">Custos Fixos:</label>
+        <input type="number" id="custoFixo" class="form-control" placeholder="Ex: 1200">
+        <small class="text-muted">Moradia / Contas / Transporte / Educação / Outros</small>
+      </div>
+
+      <!-- Despesas Variáveis -->
+      <div class="mb-3">
+        <label class="form-label">Despesas Variáveis:</label>
+        <input type="number" id="despesa" class="form-control" placeholder="Ex: 500">
+        <small class="text-muted">Lazer / Compras / Alimentação / Saúde / Outros</small>
+      </div>
+
+      <!-- Dívidas -->
+      <div class="mb-3">
+        <label class="form-label">Você possui Dívidas Ativas?</label>
+        <div>
+          <input type="radio" name="dividaAtiva" value="sim"> Sim
+          <input type="radio" name="dividaAtiva" value="nao"> Não
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <label>Valor Mensal:</label>
+            <input type="number" id="dividaMensal" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label>Parcelas Restantes:</label>
+            <input type="number" id="dividaParcelas" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <!-- Metas -->
+      <div class="mb-3">
+        <label class="form-label">Você possui alguma meta?</label>
+        <input type="radio" name="meta" value="sim"> Sim
+        <input type="radio" name="meta" value="nao"> Não
+        <input type="number" id="rendaMeta" class="form-control mt-2" placeholder="Valor da meta (Se sim)">
+      </div>
+
+      <!-- Data -->
+      <div class="mb-3">
+        <label class="form-label">Data:</label>
+        <input type="date" id="data" class="form-control">
+      </div>
+
+      <!-- Botões -->
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-success me-2" onclick="adicionarPerfil()">Adicionar Perfil</button>
+        <button type="button" class="btn btn-danger me-2" onclick="excluirPerfil()">Excluir Perfil</button>
+        <button type="button" class="btn btn-primary" onclick="atualizarPerfil()">Atualizar Perfil</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="/assets/js/perfilEco.js"></script>
+</body>
+</html>

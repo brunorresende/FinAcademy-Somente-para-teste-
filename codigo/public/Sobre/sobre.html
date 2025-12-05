@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre a FinAcademy - Projeto TI I PUC Minas</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* --- VÁRIAVEIS DE COR E FONTES (ROOT) --- */
+        :root {
+            --fin-dark-green: #2E7D32; 
+            --fin-green-main: #4CAF50; 
+            --fin-light-bg: #f8fbf9; 
+            --text-dark: #333; 
+            --shadow-light: rgba(46, 125, 50, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--fin-light-bg);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column; /* Para fixar o rodapé */
+        }
+        
+        /* Estilo da barra de topo (Top Bar) */
+        .top-bar-custom {
+            background-color: var(--fin-dark-green);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+        .top-bar-custom a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* --- ESTILOS DA SEÇÃO SOBRE (Bonitinhos) --- */
+        #sobre-page {
+            flex-grow: 1; /* Permite que o conteúdo ocupe o espaço restante */
+            padding: 50px 0 100px;
+        }
+        
+        /* 1. Caixa de Conteúdo (COM A LINHA VERDE EMBAIXO DE TUDO) */
+        .sobre-content-box {
+            background-color: white;
+            padding: 40px;
+            padding-bottom: 50px; /* Aumenta o espaço antes da borda */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-light); 
+            border-left: 5px solid var(--fin-green-main); 
+            
+            /* LINHA DECORATIVA EMBAIXO DE TODO O CONTEÚDO */
+            border-bottom: 4px solid var(--fin-green-main); 
+        }
+
+        /* 2. Título (Sem a linha decorativa, pois ela foi movida) */
+        #sobre-page h2 {
+            color: var(--fin-dark-green); 
+            font-weight: 700;
+            font-size: 2.2rem;
+            position: relative;
+            margin-bottom: 40px !important;
+        }
+        
+        /* (Regra h2::after removida, pois a linha foi para .sobre-content-box) */
+
+        /* 3. Primeiro parágrafo (Lead) */
+        .lead-project {
+            font-size: 1.15rem;
+            color: var(--fin-dark-green);
+            font-weight: 600;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee; /* Linha divisória suave */
+        }
+
+        #sobre-page p {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        #sobre-page p strong {
+            color: var(--fin-green-main);
+        }
+        
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 15px 0;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar-custom">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/index.html" class="d-flex align-items-center">
+                <i class="fas fa-arrow-left me-2"></i> Voltar à Página Inicial
+            </a>
+            <span style="font-size: 1.1rem;">FinAcademy | Projeto TI I</span>
+        </div>
+    </div>
+
+    <section id="sobre-page">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="sobre-content-box">
+                        <h2 class="text-center mb-4">Sobre a FinAcademy</h2>
+                        
+                        <p class="lead-project">
+                            A FinAcademy é a materialização prática de um projeto acadêmico de Front-End, desenvolvido ao longo de um semestre na disciplina de Trabalho Interdiciplinar I (TI I) da PUC Minas.
+                        </p>
+                        
+                        <p>
+                            Nossa missão fundamental é viabilizar e democratizar o acesso à educação financeira, um tema de importância vital e tão recorrente na sociedade atual. Em um cenário econômico complexo, ferramentas digitais e intuitivas são essenciais para capacitar o usuário.
+                        </p>
+                        
+                        <p>
+                            O projeto foi concebido para ir além do básico, utilizando HTML, CSS e JavaScript para criar uma plataforma robusta e interativa. Demonstramos a aplicação de técnicas de Desenvolvimento Web Moderno e a implementação de um sistema de gerenciamento de dados (CRUD) integrado a quizzes e módulos de aprendizado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            &copy; 2025 FinAcademy | Projeto TI I PUC Minas
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

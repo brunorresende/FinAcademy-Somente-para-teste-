@@ -1,0 +1,190 @@
+:root {
+    --fin-green-dark: #1B5E20;
+    --fin-green-main: #2E7D32;
+    --fin-green-light: #4CAF50;
+    --fin-bg: #f8fbf9;
+    --text-dark: #263238;
+    --text-muted: #607d8b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--fin-bg);
+    height: 100vh;
+    overflow: hidden; /* Impede barras de rolagem */
+}
+
+.login-wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* --- LADO ESQUERDO (VISUAL) --- */
+.visual-side {
+    flex: 1;
+    background: linear-gradient(135deg, var(--fin-green-dark), var(--fin-green-main));
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    color: white;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+.c1 { width: 300px; height: 300px; top: -50px; left: -50px; animation: float 6s infinite ease-in-out; }
+.c2 { width: 500px; height: 500px; bottom: -100px; right: -100px; animation: float 8s infinite ease-in-out reverse; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(20px); }
+}
+
+.content-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+}
+
+.text-area h2 { font-size: 3rem; font-weight: 600; line-height: 1.2; margin-bottom: 20px; }
+.text-area p { font-size: 1.1rem; opacity: 0.9; line-height: 1.6; }
+
+/* --- LADO DIREITO (FORMULÁRIO) --- */
+.form-side {
+    flex: 0 0 500px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    
+    /* Centraliza o formulário no meio da tela verticalmente */
+    justify-content: center; 
+    align-items: center;
+    
+    padding: 40px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+    
+    /* IMPORTANTE: Necessário para o posicionamento absoluto da logo funcionar */
+    position: relative; 
+    z-index: 10;
+}
+
+.form-container { width: 100%; max-width: 380px; }
+
+/* --- LOGO NO TOPO E GRANDE --- */
+.logo-link-header {
+    text-decoration: none;
+    
+    /* Fixa no topo absoluto do container branco */
+    position: absolute; 
+    top: 0; /* Encostado no topo */
+    left: 0;
+    width: 100%; /* Ocupa toda a largura para facilitar centralização */
+    text-align: center; /* Centraliza a imagem dentro do link */
+    
+    padding-top: 20px; /* Um leve respiro para não cortar a pontinha da imagem */
+    z-index: 20;
+    transition: transform 0.3s ease;
+}
+
+.logo-link-header:hover {
+    transform: scale(1.02); /* Efeito de zoom suave */
+}
+
+.logo-area-form {
+    display: inline-block;
+}
+
+.brand-logo-form {
+    width: 350px; /* AUMENTADO BASTANTE */
+    height: auto;
+    
+    /* Remove o fundo branco visualmente (se a imagem for JPG) */
+    mix-blend-mode: multiply; 
+}
+
+/* --- ESTILOS DO FORMULÁRIO --- */
+.header-form { margin-bottom: 30px; }
+.header-form h3 { color: var(--fin-green-dark); font-size: 2rem; font-weight: 700; margin-bottom: 5px; }
+.subtitle { color: var(--text-muted); font-size: 0.95rem; }
+
+.input-group-custom { margin-bottom: 25px; }
+.input-group-custom label { display: block; font-size: 0.9rem; color: var(--text-dark); font-weight: 600; margin-bottom: 8px; }
+.input-group-custom label i { color: var(--fin-green-main); margin-right: 5px; }
+
+.input-group-custom input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+.input-group-custom input:focus {
+    border-color: var(--fin-green-main);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+}
+
+.password-wrapper { position: relative; }
+.toggle-pass {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, var(--fin-green-main), var(--fin-green-light));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+}
+
+.footer-form { margin-top: 25px; text-align: center; font-size: 0.9rem; color: var(--text-muted); }
+.footer-form a { color: var(--fin-green-main); font-weight: 700; text-decoration: none; }
+.footer-form a:hover { text-decoration: underline; }
+
+.fade-in-up { animation: fadeInUp 0.8s ease-out; }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal Customizado */
+.custom-modal { border-radius: 20px; border: none; overflow: hidden; }
+.custom-modal .modal-header { background-color: var(--fin-green-main); color: white; border: none; }
+.btn-register-modal {
+    background-color: var(--fin-green-dark);
+    color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; width: 100%;
+}
+.btn-register-modal:hover { background-color: var(--fin-green-light); }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .visual-side { display: none; }
+    .form-side { flex: 1; width: 100%; box-shadow: none; }
+    .logo-link-header { position: relative; top: 0; margin-bottom: 20px; }
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinAcademy - Aula</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/visualizacao.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <a href="/modulo-conteudo/conteudo.html" class="btn-voltar">
+            <i class="fas fa-arrow-left"></i> Voltar à Trilha
+        </a>
+        <h1 id="titulo-aula">Carregando aula...</h1>
+        <div class="user-badge" id="userInfo"></div>
+    </header>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-aulas">
+            <div class="sidebar-header">
+                <h3>Conteúdo do Módulo</h3>
+            </div>
+            
+            <ul id="lista-topicos" class="topic-list">
+                </ul>
+
+            <div id="sidebar-admin-area" class="sidebar-footer-add hidden">
+                <button onclick="adicionarNovaAula()" class="btn-add-aula">
+                    <i class="fas fa-plus-circle"></i> Nova Aula
+                </button>
+            </div>
+        </aside>
+
+        <main class="content-area">
+            
+            <div id="floating-toolbar" class="floating-toolbar hidden">
+                <button onclick="redimensionarMidia('200px')">P</button>
+                <button onclick="redimensionarMidia('400px')">M</button>
+                <button onclick="redimensionarMidia('600px')">G</button>
+                <div class="separator"></div>
+                <button onclick="deletarMidia()" class="btn-del"><i class="fas fa-trash"></i></button>
+            </div>
+
+            <div class="video-container hidden" id="video-wrapper">
+                <div id="player-youtube"></div>
+            </div>
+            
+            <div class="text-content-wrapper">
+                
+                <div id="quiz-management-view" class="quiz-management-view hidden">
+                    <h2 id="quiz-management-title">Quiz do Módulo</h2>
+                    
+                    <div id="quiz-main-action">
+                        <p style="margin-bottom: 30px;">Teste seus conhecimentos com o Quiz Final do Módulo.</p>
+                        <button id="btn-iniciar-quiz" class="btn-action btn-green-quiz">
+                            <i class="fas fa-play"></i> Iniciar Quiz
+                        </button>
+                    </div>
+
+                    <div id="quiz-crud-controls" class="admin-quiz-crud-actions hidden">
+                        <p style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px;">Ferramentas de Administração do Quiz:</p>
+                        <button id="btn-add-quiz" class="btn-action btn-green-quiz"><i class="fas fa-plus"></i> Gerenciar Questões</button>
+                        <button id="btn-delete-quiz" class="btn-action btn-del-quiz" style="background-color: var(--delete-red);"><i class="fas fa-trash"></i> Excluir Quiz do Módulo</button>
+                    </div>
+                </div>
+                
+                <div id="area-conteudo-aula" class="editable-area" data-placeholder="Clique em 'Editar Tudo' e use Ctrl+V para colar imagens ou links...">
+                    </div>
+            </div>
+
+            <div class="action-footer">
+                <button id="btn-anterior" class="btn-nav" disabled>
+                    <i class="fas fa-chevron-left"></i> Anterior
+                </button>
+                
+                <div class="admin-actions hidden" id="admin-panel">
+                    <button id="btn-editar-conteudo" class="btn-action btn-yellow">
+                        <i class="fas fa-edit"></i> Editar Tudo
+                    </button>
+                </div>
+
+                <button id="btn-proximo" class="btn-nav">
+                    Próximo <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal fade" id="quizCrudModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content custom-modal">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="quizCrudModalLabel">Gerenciar Questões do Quiz</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <div id="quiz-list-container" class="mb-4">
+                        <h4>Questões Atuais</h4>
+                        <ul id="quiz-question-list" class="list-group">
+                            <li class="list-group-item text-muted">Carregando questões...</li>
+                        </ul>
+                        <button id="btn-open-add-form" class="btn btn-success mt-3" style="width: 100%;">
+                            <i class="fas fa-plus"></i> Adicionar Nova Questão
+                        </button>
+                    </div>
+
+                    <form id="question-crud-form" class="hidden border p-3 rounded">
+                        <input type="hidden" id="crud-question-id">
+                        
+                        <h5 id="form-title">Adicionar Nova Questão</h5>
+                        <div class="mb-3">
+                            <label class="form-label">Pergunta</label>
+                            <textarea class="form-control" id="crud-question-text" required></textarea>
+                        </div>
+
+                        <h6>Opções (A primeira é sempre a CORRETA)</h6>
+                        <div class="mb-3">
+                            <label class="form-label">Opção A (Correta)</label>
+                            <input type="text" class="form-control" id="crud-option-a" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Opção B</label>
+                            <input type="text" class="form-control" id="crud-option-b" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Opção C</label>
+                            <input type="text" class="form-control" id="crud-option-c" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Opção D</label>
+                            <input type="text" class="form-control" id="crud-option-d" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">URL da Imagem (Opcional)</label>
+                            <input type="text" class="form-control" id="crud-image-url">
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="button" id="btn-cancel-form" class="btn btn-secondary">Cancelar</button>
+                            <button type="submit" id="btn-submit-form" class="btn btn-success">Salvar Questão</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/visualizacao.js"></script>
+</body>
+</html>

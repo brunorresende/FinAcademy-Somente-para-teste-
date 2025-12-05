@@ -1,0 +1,27 @@
+{
+  "name": "ti1-g6-educacao-financeira",
+  "version": "1.0.0",
+  "description": "Este aplicativo tem como objetivo promover a educação financeira de forma acessível e prática. Ele oferece dicas rápidas para ajudar o usuário a economizar, investir e organizar seu dinheiro no dia a dia, além de uma calculadora financeira completa que realiza simulações de juros simples e compostos, financiamentos, empréstimos e parcelamentos. \r Complementa-se com um mini-curso teórico dividido em módulos, abordando temas como orçamento, tipos de investimento, inflação e risco versus retorno, com linguagem clara, exemplos cotidianos e quizzes interativos.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICEI-PUC-Minas-PPLCC-TI/ti1-g6-educacao-financeira.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ICEI-PUC-Minas-PPLCC-TI/ti1-g6-educacao-financeira/issues"
+  },
+  "homepage": "https://github.com/ICEI-PUC-Minas-PPLCC-TI/ti1-g6-educacao-financeira#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

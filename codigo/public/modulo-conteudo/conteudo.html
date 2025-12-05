@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação Financeira - Área de Conteúdo</title>
+    <link rel="stylesheet" href="/assets/css/conteudo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <a href="/index.html">
+            <img src="/assets/images/conteudo-img/Logo.jpeg" alt="Logo Educação Financeira">
+            </a>
+        </div>
+        
+        <div class="titulo-curso">EDUCAÇÃO FINANCEIRA</div>
+        <div class="login" id="userInfo">Login</div>
+    </div>
+
+    <div class="main-container">
+        <div class="sidebar fade-in-left">
+            
+            <div class="tema-box-wrapper">
+                <p class="tema-label">Tema Abordado</p>
+                <div id="tema-abordado">Geral</div>
+            </div>
+
+            <div class="description-box hover-info">
+                <div id="conteudo-dinamico-sidebar">
+                    <p id="descricao-header">Bem-vindo!</p>
+                    <p id="descricao-hover">Passe o mouse sobre os módulos para visualizar o planejamento.</p>
+                </div>
+            </div>
+
+            <!-- 🔥 REMOVIDO: toda a seção de progresso -->
+            
+            <div class="html-links-container">
+                <div class="quadrado-link"><a href="/modulo calculadora/Calculadora.html">Calculadora Fin.</a></div>
+                <div class="quadrado-link"><a href="/modulo perfilEco/perfilEco/perfilEco.html">Teste de Perfil</a></div>
+            </div>
+        </div>
+
+        <div class="content-wrapper fade-in-up">
+            <h2 class="content-heading">TRILHA DE APRENDIZADO</h2>
+
+            <div class="modulo-view hidden" id="modulo-view">
+                <h3 id="modulo-view-titulo"></h3>
+                <div id="modulo-view-conteudo"></div>
+                <button id="close-module-view" class="btn-back">Voltar aos Módulos</button>
+            </div>
+            
+            <div class="modulos-grid" id="modulos-grid">
+                <p id="loading-message" style="grid-column: 1/-1; text-align: center; color: #666;">Carregando sua jornada financeira...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="modal-overlay hidden">
+        <div class="modal-content bounce-in">
+            <div class="modal-header">
+                <h3 id="modal-title">Gerenciar Módulo</h3>
+                <button id="btn-close-modal" class="btn-close">X</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-modulo">
+                    <input type="hidden" id="modulo-id">
+                    
+                    <div class="form-group">
+                        <label for="titulo">Título do Módulo:</label>
+                        <input type="text" id="titulo" required placeholder="Ex: Introdução à Economia">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ordem">Ordem:</label>
+                        <input type="number" id="ordem" required min="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descricao">Planejamento/Descrição:</label>
+                        <textarea id="descricao" rows="5" required placeholder="Separe os tópicos por linha..."></textarea>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="submit" class="btn-save">Salvar Módulo</button>
+                        <button type="button" id="btn-cancel-modal" class="btn-cancel">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/conteudo.js"></script>
+</body>
+</html>
